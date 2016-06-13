@@ -29,6 +29,7 @@ while (1) {
 		$data =~ s/^\s+|\s+$//g;
 		
 		print "keycode: '$data'\n";
+		system("amixer -D'hw:CARD=CODEC' set Speaker,0 100%");
 		system("aplay -D'hw:CARD=CODEC,DEV=0' ".get_wav(38, 0xED11, hex $data));
 	}
 	
